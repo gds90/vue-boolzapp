@@ -84,18 +84,29 @@ li {
 .activeChat {
     height: 685px;
     background-image: url(../img/mine.jpg);
+    padding: 20px 40px;
 }
 .newMessage {
     height: 50px;
     background-color: rgb(234,234,234);
 }
-
+.message {
+    width: 250px;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
 .sent{
     background-color: rgb(220,248,193);
 }
 
 .received{
     background-color: #fff;
+}
+
+.messageTime {
+    color:rgb(156, 156, 156);
+    text-align: end;
 }
 
 input,
