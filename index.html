@@ -29,9 +29,7 @@
                             <div class="notificationSound d-flex align-items-center p-3">
                                 <i class="fa-solid fa-bell-slash bg-light rounded-circle"></i>
                                 <div class="notificationText ms-3">
-
                                     <span class="fw-bold fs_14 d-block">Ricevi notifiche di nuovi messaggi</span>
-                                   
                                     <span class="text-decoration-underline fs_13">Attiva notifiche dekstop</span>
                                 </div>
                             </div>
@@ -75,7 +73,8 @@
                             </div>
                             <div class="activeChat">
                                 <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex" class="d-flex" :style="{'justify-content': message.status === 'sent' ? 'flex-end' : 'flex-start'}"> 
-                                    <div class="message fs_12" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" >
+                                    <div class="message fs_12" 
+                                    :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" >
                                         <div>{{message.message}}</div>
                                         <div class="messageTime fs_10">{{formatTime(message.date)}}</div>
                                     </div>
@@ -87,7 +86,7 @@
                                         <i class="fa-regular fa-face-smile ms-3"></i>
                                     </div>
                                     <div class="col-10 d-flex justify-content-center align-items-center">
-                                        <input type="text" class="form-control" placeholder="Scrivi un nuovo messaggio">
+                                        <input type="text" class="form-control" placeholder="Scrivi un nuovo messaggio" v-model="textMessage" @keyup.enter="addMessage">
                                     </div>
                                     <div class="col-1 d-flex justify-content-center align-items-center">
                                         <i class="fa-solid fa-microphone me-3"></i>

@@ -1,10 +1,10 @@
 const {createApp} = Vue;
-const { DateTime } = luxon;
 
 createApp({
     data(){
         return{
             activeContact: 0,
+            textMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -176,15 +176,30 @@ createApp({
         changeContact(index){
             this.activeContact = index;
         },
+        // funzione per estrarre l'orario del messaggio dalla stringa della data
         formatTime(dateString) {
             const time = dateString.slice(11,16);
             return time;
-        }
+        },
+        // funzione per aggiungere un messaggio alla chat del contatto
+        addMessage(){
+            let obj = {
+                date: '14/12/2023 18:00',
+                message: this.textMessage,
+                status: 'sent' 
+            }
+            this.contacts[this.activeContact].messages.push(obj);
+            this.textMessage = '';
+            // funzione Timeout di risposta automatica per ogni nuovo messaggio inserito
+            setTimeout(() => {
+                let userAnswer = {
+                  date: '14/12/2023 18:00',
+                  message: 'Ok',
+                  status: 'received' 
+                };
+                
+                this.contacts[this.activeContact].messages.push(userAnswer);
+            }, 1000);
+        },
     },
-
 }).mount('#app')
-
-
-
-
-
