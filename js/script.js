@@ -12,7 +12,7 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '15:30:55',
+                            date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
@@ -177,9 +177,9 @@ createApp({
             this.activeContact = index;
         },
         formatTime(dateString) {
-            const date = DateTime.fromISO(dateString);
-            return date.toFormat('HH:mm');
-          }
+            const time = dateString.slice(11,16);
+            return time;
+        }
     },
 
 }).mount('#app')
