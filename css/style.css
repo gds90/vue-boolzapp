@@ -3,3 +3,103 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/* FONT-SIZE UTILITIES */
+.fs_14 {
+    font-size: 14px;
+}
+.fs_13 {
+    font-size: 13px;
+}
+.fs_12 {
+    font-size: 12px;
+}
+.fs_10 {
+    font-size: 10px;
+}
+
+body {
+    background-image: linear-gradient(to bottom, rgb(66, 149, 136) 15vh, rgb(219, 219, 210) 15vh) ;
+    height: 100vh;
+}
+
+#mainWindow{
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.leftSide {
+    height: 800px;
+    padding: 0;
+    overflow-y: auto;
+}
+.userInfo, .activeContactInfo{
+    background-color: rgb(234,234,234);
+}
+.userIcons, .contactIcons{
+    color:rgb(156, 156, 156)
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.notificationSound{
+    background-color: rgb(159, 216, 248);
+}
+
+.fa-bell-slash {
+    padding: 10px 10px;
+    color: rgb(159, 216, 248);
+}
+.fa-magnifying-glass, .fa-microphone, .fa-face-smile {
+    color:rgb(156, 156, 156)
+}
+
+.searchBar {
+    background-color: rgb(234,234,234);
+}
+
+li {
+    border-top: 1px solid rgb(234,234,234);
+}
+
+.active {
+    background-color: rgb(214, 214, 214);
+}
+
+.rightSide {
+    height: 800px;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.activeContactInfo {
+    border-left: 1px solid rgb(214, 214, 214);
+}
+.activeChat {
+    height: 685px;
+    background-image: url(../img/mine.jpg);
+}
+.newMessage {
+    height: 50px;
+    background-color: rgb(234,234,234);
+}
+
+.sent{
+    background-color: rgb(220,248,193);
+}
+
+.received{
+    background-color: #fff;
+}
+
+input,
+input::placeholder {
+    font: 12px sans-serif;
+    padding-left: 10px;
+}

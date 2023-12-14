@@ -11,7 +11,89 @@
 <body>
     <div id="app">
         <main>
-            
+            <div id="mainWindow" class="container">
+                <div class="row">
+                    <div class="col-4 leftSide bg-light">
+                        <div class="content">
+                            <div class="userInfo d-flex justify-content-between align-items-center">
+                                <div class="userImg m-2">
+                                    <img src="./img/avatar_io.jpg" alt="User Profile picture">
+                                    <span class="ms-2">Sofia</span>
+                                </div>
+                                <div class="userIcons m-3">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                    <i class="fa-solid fa-message mx-3"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div class="notificationSound d-flex align-items-center p-3">
+                                <i class="fa-solid fa-bell-slash bg-light rounded-circle"></i>
+                                <div class="notificationText ms-3">
+
+                                    <span class="fw-bold fs_14 d-block">Ricevi notifiche di nuovi messaggi</span>
+                                   
+                                    <span class="text-decoration-underline fs_13">Attiva notifiche dekstop</span>
+                                </div>
+                            </div>
+                            <div class="searchBar p-1">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text px-3" id="inputGroup-sizing-sm"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </div>
+                            <div class="contactsList">
+                                <ul class="list-unstyled">
+                                    <li v-for="(contact, index) in contacts" :key="index" class="d-flex p-2" :class="activeContact === index ? 'active' : ''" @click="changeContact(index)">
+                                        <img :src="contacts[index].avatar" alt="">
+                                        <div class="contactInfo d-flex flex-column ms-2">
+                                            <span class="fs_14 fw-bold">{{contacts[index].name}}</span>
+                                            <p class="fs_12 text-secondary">Ultimo messaggio inviato</p>
+                                        </div>
+                                        <div class="lastMessageTime ms-auto">
+                                            <span class="fs_10 text-secondary">12:00</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 rightSide">
+                        <div class="content">
+                            <div class="activeContactInfo d-flex align-items-center pe-3">
+                                <div class="contactImg m-2">
+                                    <img :src="contacts[activeContact].avatar" alt="Contact Profile picture">
+                                </div>
+                                <div class="d-flex flex-column ms-2 pt-2">
+                                    <span class="">{{contacts[activeContact].name}}</span>
+                                    <p class="fs_12 text-secondary">Ultimo accesso oggi alle 12:00</p>
+                                </div>
+                                <div class="contactIcons ms-auto">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-solid fa-paperclip mx-3"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+                            </div>
+                            <div class="activeChat">
+                                
+                            </div>
+                            <div class="container newMessage">
+                                <div class="row h-100">
+                                    <div class="col-1 d-flex justify-content-center align-items-center">
+                                        <i class="fa-regular fa-face-smile ms-3"></i>
+                                    </div>
+                                    <div class="col-10 d-flex justify-content-center align-items-center">
+                                        <input type="text" class="form-control" placeholder="Scrivi un nuovo messaggio">
+                                    </div>
+                                    <div class="col-1 d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-microphone me-3"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </main>
     </div>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
