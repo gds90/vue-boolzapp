@@ -1,4 +1,6 @@
 const {createApp} = Vue;
+const dt = luxon.DateTime;
+
 
 createApp({
     data(){
@@ -185,7 +187,7 @@ createApp({
         // funzione per aggiungere un messaggio alla chat del contatto
         addMessage(){
             let obj = {
-                date: '14/12/2023 18:00',
+                date: this.getTodayData(),
                 message: this.textMessage,
                 status: 'sent' 
             }
@@ -194,7 +196,7 @@ createApp({
             // funzione Timeout di risposta automatica per ogni nuovo messaggio inserito
             setTimeout(() => {
                 let userAnswer = {
-                  date: '14/12/2023 18:00',
+                  date: this.getTodayData(),
                   message: 'Ok',
                   status: 'received' 
                 };
@@ -213,6 +215,12 @@ createApp({
                 }
                 console.log(element)
             })
+        },
+        // funzione per recuperare la data e l'ora attuale
+        getTodayData(){
+            let today = dt.now();
+            today = today.toFormat('dd/MM/yyyy HH:mm:ss');
+            return today;
         }
     },
 }).mount('#app')
