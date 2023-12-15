@@ -36,12 +36,13 @@
                             <div class="searchBar p-1">
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-text px-3" id="inputGroup-sizing-sm"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat">
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="searchFunction">
                                 </div>
                             </div>
                             <div class="contactsList">
                                 <ul class="list-unstyled">
-                                    <li v-for="(contact, index) in contacts" :key="index" class="d-flex p-2" :class="activeContact === index ? 'active' : ''" @click="changeContact(index)">
+                                    <li v-for="(contact, index) in contacts" :key="index" class="displayFlex p-2" :class="activeContact === index ? 'active' : ''" @click="changeContact(index)"
+                                    v-show="contacts[index].visible == true">
                                         <img :src="contacts[index].avatar" alt="">
                                         <div class="contactInfo d-flex flex-column ms-2">
                                             <span class="fs_14 fw-bold">{{contacts[index].name}}</span>

@@ -118,3 +118,6 @@ input::placeholder {
 .flexEnd {
     justify-content: flex-end;
 }
+.displayFlex {
+    display: flex;
+}

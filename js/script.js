@@ -5,6 +5,7 @@ createApp({
         return{
             activeContact: 0,
             textMessage: '',
+            searchContact: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -201,5 +202,17 @@ createApp({
                 this.contacts[this.activeContact].messages.push(userAnswer);
             }, 1000);
         },
+        // funzione per la ricerca dei contatti
+        searchFunction(){
+            this.contacts.forEach((element) => {
+                if(element.name.toLowerCase().includes(this.searchContact.toLowerCase())){
+                    element.visible = true;
+                }
+                else {
+                    element.visible = false;
+                }
+                console.log(element)
+            })
+        }
     },
 }).mount('#app')
