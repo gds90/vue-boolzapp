@@ -114,3 +114,7 @@ input::placeholder {
     font: 12px sans-serif;
     padding-left: 10px;
 }
+
+.flexEnd {
+    justify-content: flex-end;
+}

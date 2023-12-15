@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="activeChat">
-                                <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex" class="d-flex" :style="{'justify-content': message.status === 'sent' ? 'flex-end' : 'flex-start'}"> 
+                                <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex" class="d-flex" :class="message.status === 'sent' ? 'flexEnd' : ''"> 
                                     <div class="message fs_12" 
                                     :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" >
                                         <div>{{message.message}}</div>
