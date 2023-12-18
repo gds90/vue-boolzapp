@@ -8,6 +8,8 @@ createApp({
             activeContact: 0,
             textMessage: '',
             searchContact: '',
+            isToggleVisible: false,
+            isDarkModeActive: false,
             contacts: [
                 {
                     name: 'Michele',
@@ -271,7 +273,24 @@ createApp({
         autoScroll(){
             const chatContainer = document.querySelector('.activeChat');
             chatContainer.scrollTop = chatContainer.scrollHeight;
-            console.log('autoscroll attivato')
+        },
+        // funzione per mostrare/nascondere il toggle della dark mode
+        toggleDarkMode() {
+            this.isToggleVisible = !this.isToggleVisible;
+        },
+        // funzione per attivare/disattivare la darkmode
+        activeDarkMode(){
+            isDarkModeActive = true;
+            if (this.isDarkModeActive) {
+                // cambio i colori dello sfondo della finestra e della chat in versione dark
+                document.body.style.backgroundImage = 'linear-gradient(to bottom, rgb(14, 42, 53) 15vh, rgb(48, 48, 43) 15vh)';
+                document.querySelector('.activeChat').style.backgroundImage = 'url("./img/mine_dark.png")';
+            } else {
+                // ripristino i colori predefiniti
+                document.body.style.backgroundImage = 'linear-gradient(to bottom, rgb(66, 149, 136) 15vh, rgb(219, 219, 210) 15vh)';
+                document.querySelector('.activeChat').style.backgroundImage = 'url("./img/mine.jpg")';
+                isDarkModeActive = false;
+            }
         }
     }
 }).mount('#app')
