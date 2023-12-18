@@ -108,6 +108,22 @@ li {
     border-radius: 5px;
     position: relative;
 }
+
+.likeThumb {
+    position: absolute;
+    left: 5px;
+    bottom: -8px;
+    font-size: 5px;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.likeThumb.show {
+    opacity: 1;
+    font-size: 15px;
+
+}
+
 .sent{
     background-color: rgb(220,248,193);
 }

@@ -83,11 +83,13 @@
                                                     <i class="fa-solid fa-chevron-down dropbtn"></i>   
                                                     <ul class="dropdown-content dropdown-menu-left list-unstyled">
                                                       <li><a href="#">Info messaggio</a></li>
+                                                      <li><a href="#" @click="likeMessage(messageIndex)">"Mi piace"</a></li>
                                                       <li><a href="#" @click="removeMessage(messageIndex)">Cancella messaggio</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
+                                        <span class="likeThumb" :class="message.liked == true ? 'show' : ''">👍</span>
                                         <div class="messageTime fs_10">{{formatTime(message.date)}}</div>
                                     </div>
                                 </div>
