@@ -213,7 +213,6 @@ createApp({
                 else {
                     element.visible = false;
                 }
-                console.log(element)
             })
         },
         // funzione per recuperare la data e l'ora attuale
@@ -221,6 +220,20 @@ createApp({
             let today = dt.now();
             today = today.toFormat('dd/MM/yyyy HH:mm:ss');
             return today;
+        },
+        // funzione per recuperare l'ultimo messaggio della chat del contatto
+        getLastMessage(index){
+            return this.contacts[index].messages[this.contacts[index].messages.length - 1].message.slice(0,30) + '...';
+        },
+        // funzione per recuperare l'ora dell'ultimo messaggio
+        getLastMessageTime(index){
+            let time = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+            time = this.formatTime(time);
+            return time;
+        },
+        // funzione per rimuovere un messaggio
+        removeMessage(index){
+            this.contacts[this.activeContact].messages.splice(index, 1);
         }
-    },
+    }
 }).mount('#app')

@@ -30,7 +30,7 @@
                                 <i class="fa-solid fa-bell-slash bg-light rounded-circle"></i>
                                 <div class="notificationText ms-3">
                                     <span class="fw-bold fs_14 d-block">Ricevi notifiche di nuovi messaggi</span>
-                                    <span class="text-decoration-underline fs_13">Attiva notifiche dekstop</span>
+                                    <span class="text-decoration-underline fs_13 text-secondary">Attiva notifiche dekstop</span>
                                 </div>
                             </div>
                             <div class="searchBar p-1">
@@ -43,13 +43,13 @@
                                 <ul class="list-unstyled">
                                     <li v-for="(contact, index) in contacts" :key="index" class="displayFlex p-2" :class="activeContact === index ? 'active' : ''" @click="changeContact(index)"
                                     v-show="contacts[index].visible == true">
-                                        <img :src="contacts[index].avatar" alt="">
+                                        <img :src="contacts[index].avatar" :alt="contacts[index].name">
                                         <div class="contactInfo d-flex flex-column ms-2">
                                             <span class="fs_14 fw-bold">{{contacts[index].name}}</span>
-                                            <p class="fs_12 text-secondary">Ultimo messaggio inviato</p>
+                                            <p class="fs_12 text-secondary">{{getLastMessage(index)}}</p>
                                         </div>
                                         <div class="ms-auto">
-                                            <span class="fs_10 text-secondary">12:00</span>
+                                            <span class="fs_10 text-secondary">{{getLastMessageTime(index)}}</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -76,7 +76,19 @@
                                 <div v-for="(message, messageIndex) in contacts[activeContact].messages" :key="messageIndex" class="d-flex" :class="message.status === 'sent' ? 'flexEnd' : ''"> 
                                     <div class="message fs_12" 
                                     :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }" >
-                                        <div>{{message.message}}</div>
+                                        <div class="w-break d-flex">
+                                            {{message.message}}
+                                            <div class="list-inline-item vMenu ms-auto">
+                                                <div class="dropdown">
+                                                    <i class="fa-solid fa-chevron-down dropbtn"></i>   
+                                                    <ul class="dropdown-content dropdown-menu-left list-unstyled">
+                                                      <li><a href="#">Info messaggio</a></li>
+                                                      <li><a href="#" @click="removeMessage(messageIndex)">Cancella messaggio</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- <span class="vMenu ms-auto"><i class="fa-solid fa-chevron-down"></i></span> -->
+                                        </div>
                                         <div class="messageTime fs_10">{{formatTime(message.date)}}</div>
                                     </div>
                                 </div>
