@@ -223,13 +223,18 @@ createApp({
         },
         // funzione per recuperare l'ultimo messaggio della chat del contatto
         getLastMessage(index){
-            return this.contacts[index].messages[this.contacts[index].messages.length - 1].message.slice(0,30) + '...';
+            if (this.contacts[index].messages.length > 0){
+
+                return this.contacts[index].messages[this.contacts[index].messages.length - 1].message.slice(0,30) + '...';
+            }
         },
         // funzione per recuperare l'ora dell'ultimo messaggio
         getLastMessageTime(index){
-            let time = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
-            time = this.formatTime(time);
-            return time;
+            if (this.contacts[index].messages.length > 0){
+                let time = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+                time = this.formatTime(time);
+                return time;
+            }
         },
         // funzione per rimuovere un messaggio
         removeMessage(index){
@@ -237,3 +242,5 @@ createApp({
         }
     }
 }).mount('#app')
+
+// if (this.contacts[index].messages.length > 0)
