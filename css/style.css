@@ -86,7 +86,6 @@ li {
 .rightSide {
     height: 800px;
     padding: 0;
-    overflow-y: auto;
 }
 
 .activeContactInfo {
@@ -95,7 +94,8 @@ li {
 .activeChat {
     height: 685px;
     background-image: url(../img/mine.jpg);
-    padding: 20px 40px;
+    padding: 20px 40px 60px;
+    overflow-y: auto;
 }
 .newMessage {
     height: 50px;
@@ -174,9 +174,8 @@ input::placeholder {
 }
 
 .w-break {
-    word-break: keep-all;
+    word-break:break-all
 }
-
 
 /* DROPDOWN MENU  */
 .vMenu {

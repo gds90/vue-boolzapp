@@ -214,6 +214,7 @@ createApp({
             }
             this.contacts[this.activeContact].messages.push(obj);
             this.textMessage = '';
+            this.autoScroll();
             // funzione Timeout di risposta automatica per ogni nuovo messaggio inserito
             setTimeout(() => {
                 let userAnswer = {
@@ -223,6 +224,7 @@ createApp({
                 };
                 
                 this.contacts[this.activeContact].messages.push(userAnswer);
+                this.autoScroll();
             }, 1000);
         },
         // funzione per la ricerca dei contatti
@@ -264,6 +266,12 @@ createApp({
         // funzione per mettere e togliere il "Mi piace" ai messaggi
         likeMessage(index){
             this.contacts[this.activeContact].messages[index].liked = !this.contacts[this.activeContact].messages[index].liked;
+        },
+        // funzione per l'autoscroll automatico della schermata chat
+        autoScroll(){
+            const chatContainer = document.querySelector('.activeChat');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            console.log('autoscroll attivato')
         }
     }
 }).mount('#app')
