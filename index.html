@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="d-flex flex-column ms-2 pt-2">
                                     <span class="">{{contacts[activeContact].name}}</span>
-                                    <p class="fs_12 text-secondary">Ultimo accesso oggi alle 12:00</p>
+                                    <p class="fs_12 text-secondary">Ultimo accesso oggi alle {{(getLastMessageTime(activeContact))}}</p>
                                 </div>
                                 <div class="contactIcons ms-auto">
                                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -87,7 +87,6 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <!-- <span class="vMenu ms-auto"><i class="fa-solid fa-chevron-down"></i></span> -->
                                         </div>
                                         <div class="messageTime fs_10">{{formatTime(message.date)}}</div>
                                     </div>
