@@ -105,8 +105,15 @@
                             </div>
                             <div class="container newMessage">
                                 <div class="row h-100">
-                                    <div class="col-1 d-flex justify-content-center align-items-center">
+                                    <div class="col-1 d-flex justify-content-center align-items-center" @mouseover="showEmojiPicker"
+                                    @mouseleave="hideEmojiPicker">
                                         <i class="fa-regular fa-face-smile ms-3"></i>
+                                        <div id="emojiPicker">
+                                            <button @click="insertEmoji('😊')">😊</button>
+                                            <button @click="insertEmoji('😂')">😂</button>
+                                            <button @click="insertEmoji('😅')">😅</button>
+                                            <button @click="insertEmoji('😍')">😍</button>
+                                        </div>
                                     </div>
                                     <div class="col-10 d-flex justify-content-center align-items-center">
                                         <input type="text" class="form-control" placeholder="Scrivi un nuovo messaggio" v-model="textMessage" @keyup.enter="addMessage">

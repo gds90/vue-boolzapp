@@ -105,6 +105,7 @@ li {
 .newMessage {
     height: 50px;
     background-color: rgb(234,234,234);
+    position: relative;
 }
 .message {
     width: 250px;
@@ -232,6 +233,7 @@ border-radius: 10px;
     z-index: 1;
     border-radius: 10px;
     min-width: 150px;
+    border: 1px solid gray
 }
 .form-check-input {
     margin-top: 6px;
@@ -241,3 +243,20 @@ border-radius: 10px;
     cursor: pointer;
 }
 
+/* EMOJI PICKER */
+#emojiPicker {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    border: 0;
+    width: 150px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border: 1px solid gray
+}
+
+#emojiPicker button{
+    border: 0;
+    margin: 10px
+}

@@ -292,6 +292,24 @@ createApp({
 
                 isDarkModeActive = false;
             }
+        },
+        // EMOJI PICKER
+        // funzione per rendere visibile l'emoji picker
+        showEmojiPicker() {
+            const emojiPicker = document.getElementById('emojiPicker');
+
+            emojiPicker.style.display = 'block';
+        },
+        // funzione per rendere invisibile l'emoji picker
+        hideEmojiPicker() {
+            const emojiPicker = document.getElementById('emojiPicker');
+
+            emojiPicker.style.display = 'none';
+        },
+        // funzione per aggiungere l'emoji cliccata al input text
+        insertEmoji(emoji) {
+            this.textMessage += emoji + ' ';
+            this.hideEmojiPicker();
         }
     }
 }).mount('#app')
